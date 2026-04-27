@@ -1,1 +1,8 @@
+class Cliente:
+    def __init__(self, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
 
+    def mostrar_info(self):
+        print(f"Nombre: {self.nombre}")
+        print(f"Correo: {self.correo}")
