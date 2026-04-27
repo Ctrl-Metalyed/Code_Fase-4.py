@@ -7,3 +7,8 @@ class Cliente:
     def mostrar_info(self):
         print(f"Nombre: {self.nombre}")
         print(f"Correo: {self.correo}")
+# Crear un cliente de prueba
+cliente1 = Cliente("Natalia", "natalia@email.com")
+
+# Mostrar información
+cliente1.mostrar_info()
