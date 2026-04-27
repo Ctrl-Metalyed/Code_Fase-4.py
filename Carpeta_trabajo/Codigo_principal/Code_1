@@ -1,1 +1,14 @@
+# Clase que representa un cliente del sistema
+class Cliente:
+    def __init__(self, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
 
+    def mostrar_info(self):
+        print(f"Nombre: {self.nombre}")
+        print(f"Correo: {self.correo}")
+# Crear un cliente de prueba
+cliente1 = Cliente("Natalia", "natalia@email.com")
+
+# Mostrar información
+cliente1.mostrar_info()
