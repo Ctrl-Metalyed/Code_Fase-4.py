@@ -7,7 +7,6 @@ from excepciones_personalizadas import DatoInvalidoError
 def ejecutar_sistema():
     print("=== SISTEMA DE GESTIÓN SOFTWARE FJ - FASE 4 ===")
     
-    # 10 Operaciones: 5 exitosas, 5 con errores
     simulaciones = [
         {"id": 101, "nom": "Jesus Vasquez", "mail": "jesus@unad.edu.co", "dur": 5, "tipo": "Exitoso"},
         {"id": 102, "nom": "", "mail": "error@unad.com", "dur": 2, "tipo": "Fallo: Nombre Vacío"},
@@ -25,29 +24,26 @@ def ejecutar_sistema():
         print(f"\n>>> Procesando Operación {i}: {caso['tipo']}")
         
         try:
-            # Implementación obligatoria: try/except/else/finally
-            
-            # Intento de creación de objetos usando el código de los compañeros
+            # Creación de objetos con manejo de excepciones
             cliente = Cliente(caso.get("id_bad", caso["id"]), caso["nom"], caso["mail"])
-            servicio = ReservaSala("Sala Principal", 45000)
-            reserva = Reserva(cliente, servicio, caso["dur"])
             
+            # Ajuste: Enviamos ID, Nombre y Costo Base
+            servicio = ReservaSala(500 + i, "Sala Principal", 45000) 
+            
+            reserva = Reserva(cliente, servicio, caso["dur"])
             reserva.confirmar()
 
         except (ValueError, Exception) as e:
-            # Captura de errores y registro en LOG (Requisito Persona 5)
             error_msg = f"Error en Op {i}: {str(e)}"
             print(f"❌ {error_msg}")
             registrar_log(error_msg)
 
         else:
-            # Se ejecuta solo si todo sale bien
             success_msg = f"✅ Reserva exitosa para {cliente.nombre}"
             print(success_msg)
             registrar_log(success_msg, "INFO")
 
         finally:
-            # Se ejecuta siempre (Requisito Persona 5)
             print(f"--- Fin de validación operación {i} ---")
 
     print("\nSimulación finalizada. Revise 'sistema_errores.log' para el historial.")
