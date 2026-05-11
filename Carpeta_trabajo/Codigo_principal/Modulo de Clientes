@@ -17,3 +17,5 @@ class Cliente(EntidadSistema):
         print(f"ID: {self.id}")
         print(f"Nombre: {self.nombre}")
         print(f"Correo: {self.correo}")
+cliente1 = Cliente(1, "Natica", "natica@email.com")
+cliente1.mostrar_info()
