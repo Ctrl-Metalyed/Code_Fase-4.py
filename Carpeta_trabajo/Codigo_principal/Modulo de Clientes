@@ -1,12 +1,14 @@
 from modelos_base import EntidadSistema
 
 class Cliente(EntidadSistema):
+
     def __init__(self, id, nombre, correo):
         super().__init__(id)
 
         # Validaciones
         if not nombre:
             raise ValueError("El nombre no puede estar vacío")
+
         if "@" not in correo:
             raise ValueError("Correo inválido")
 
@@ -17,5 +19,9 @@ class Cliente(EntidadSistema):
         print(f"ID: {self.id}")
         print(f"Nombre: {self.nombre}")
         print(f"Correo: {self.correo}")
-cliente1 = Cliente(1, "Natica", "natica@email.com")
+
+# Crear cliente de prueba
+cliente1 = Cliente(1, "Natalia", "natalia.unad@prueba.com")
+
+# Mostrar información
 cliente1.mostrar_info()
